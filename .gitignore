@@ -1,0 +1,33 @@
+*.log
+*.lck
+*.sh
+/target/
+.designer/
+bin/
+.vscode
+.vertx/
+/Data
+
+# IDE
+out/
+Thumbs.db
+.DS_Store
+.gradle
+build/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+*.cache
+
+# Modelo de prueba
+MyTest.groovy
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
