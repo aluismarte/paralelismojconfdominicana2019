@@ -1,6 +1,8 @@
 package edu.aluismarte.jconf
 
 import edu.aluismarte.jconf.domain.Works
+import edu.aluismarte.jconf.tests.MonoThread
+import edu.aluismarte.jconf.tests.MultiThread
 import edu.aluismarte.jconf.utils.Constants
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -18,8 +20,8 @@ object ParalelismoJConfDominicana2019 {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(Works)
             if (Works.selectAll().count() == 0) {
-                val rowsOnDB = 500 * 1000
-                for (i in 0 until rowsOnDB) {
+                println("No data, creating DB")
+                for (i in 0 until Constants.ROWS_ON_DB) {
                     val line = StringBuilder()
                     val numberList = Constants.numberList()
                     Constants.shuffle(numberList)
@@ -33,8 +35,13 @@ object ParalelismoJConfDominicana2019 {
                         it[numbers] = line.toString()
                     }
                 }
+                println("Data Created")
+            } else {
+                println("Data already exist")
             }
         }
-        // Load test
+        MonoThread.run()
+        println("--------------------------------------------------------")
+        MultiThread.run()
     }
 }

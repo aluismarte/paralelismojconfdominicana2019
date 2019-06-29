@@ -18,7 +18,7 @@ object DataLoader {
     }
 
     @JvmStatic
-    fun loadByPart(cant: Int, offset: Int): List<Work> {
+    fun loadByPart(offset: Int, cant: Int): List<Work> {
         return Work.all().limit(cant, offset).toList()
     }
 }

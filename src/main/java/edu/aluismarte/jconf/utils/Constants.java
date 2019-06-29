@@ -12,11 +12,13 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Constants {
 
-    private static int numbersCount = 9;
+    public static final int PART_TO_LOAD = 50;
+    public static final int ROWS_ON_DB = 500 * 1000;
 
     public static List<Integer> numberList() {
         List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < numbersCount; i++) {
+        int NUMBER_TO_COUNT = 9;
+        for (int i = 0; i < NUMBER_TO_COUNT; i++) {
             numbers.add(i + 1);
         }
         return numbers;

@@ -14,10 +14,7 @@ public class MonoThread {
 
     private static final Counter counter = new Counter();
 
-    public MonoThread() {
-    }
-
-    public void runLoadAllData() {
+    public static void run() {
         long initTime = System.currentTimeMillis();
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<Boolean> mono = executorService.submit(() -> {
@@ -25,21 +22,24 @@ public class MonoThread {
                 for (Work work : DataLoader.loadAll()) {
                     counter.sumNumberSyncronize(work.getNumbers());
                 }
-            } catch (Exception ignored) {
-                System.out.println("Revisar la excepción");
+            } catch (Exception ex) {
+                System.out.println("Error!");
+                ex.printStackTrace();
                 return false;
             }
             return true;
         });
         try {
+            // Force to finish
             if (mono.get()) {
-                System.out.println("Exito!");
+                System.out.println("Success!");
                 counter.printResults(initTime);
             } else {
-                System.out.println("Error al calcular");
+                System.out.println("Error");
             }
-        } catch (Exception ignored) {
-            System.out.println("No pude esperar el hilo");
+        } catch (Exception ex) {
+            System.out.println("Cant wait thread");
+            ex.printStackTrace();
         }
         executorService.shutdown();
     }
