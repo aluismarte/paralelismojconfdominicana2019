@@ -2,7 +2,7 @@ package edu.aluismarte.jconf.utils;
 
 /**
  * Guarda el numero y la frecuencia que se repote el mismo
- *
+ * <p>
  * Created by aluis on 10/28/18.
  */
 class Freq {

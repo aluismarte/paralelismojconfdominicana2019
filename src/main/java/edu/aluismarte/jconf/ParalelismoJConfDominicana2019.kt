@@ -15,7 +15,7 @@ object ParalelismoJConfDominicana2019 {
     @JvmStatic
     fun main(args: Array<String>) {
         println("Hello JConf Dominicana 2019!")
-        Database.connect("jdbc:h2:mem:test", driver = "org.h2.Driver")
+        Database.connect("jdbc:h2:./JConf;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(Works)
@@ -39,6 +39,7 @@ object ParalelismoJConfDominicana2019 {
             } else {
                 println("Data already exist")
             }
+            commit()
         }
         MonoThread.run()
         println("--------------------------------------------------------")

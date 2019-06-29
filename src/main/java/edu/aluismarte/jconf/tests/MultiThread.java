@@ -46,7 +46,7 @@ public class MultiThread {
         return executorService.submit(() -> {
             try {
                 for (Work work : DataLoader.loadByPart(from, Constants.PART_TO_LOAD)) {
-                    counter.sumNumberMinimalSyncronize(work.getNumbers());
+                    counter.sumNumberSyncronize(work.getNumbers());
                 }
             } catch (Exception ignored) {
                 System.out.println("Revisar la excepción");
