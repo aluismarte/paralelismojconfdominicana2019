@@ -10,6 +10,7 @@ bin/
 
 # IDE
 out/
+*.trace.db
 Thumbs.db
 .DS_Store
 .gradle

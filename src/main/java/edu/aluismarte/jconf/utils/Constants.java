@@ -17,7 +17,7 @@ public class Constants {
 
     public static List<Integer> numberList() {
         List<Integer> numbers = new ArrayList<>();
-        int NUMBER_TO_COUNT = 9;
+        int NUMBER_TO_COUNT = 20;
         for (int i = 0; i < NUMBER_TO_COUNT; i++) {
             numbers.add(i + 1);
         }

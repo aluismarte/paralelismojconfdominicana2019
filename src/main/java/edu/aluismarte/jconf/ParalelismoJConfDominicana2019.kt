@@ -6,6 +6,7 @@ import edu.aluismarte.jconf.tests.MultiThread
 import edu.aluismarte.jconf.utils.Constants
 import org.jetbrains.exposed.sql.*
 import org.jetbrains.exposed.sql.transactions.transaction
+import java.util.concurrent.TimeUnit
 
 /**
  * Created by aluis on 6/17/19.
@@ -15,7 +16,7 @@ object ParalelismoJConfDominicana2019 {
     @JvmStatic
     fun main(args: Array<String>) {
         println("Hello JConf Dominicana 2019!")
-        Database.connect("jdbc:h2:./JConf;DB_CLOSE_DELAY=-1", driver = "org.h2.Driver")
+        Database.connect("jdbc:h2:./JConf;IGNORECASE=true;", driver = "org.h2.Driver")
         transaction {
             addLogger(StdOutSqlLogger)
             SchemaUtils.create(Works)
@@ -41,6 +42,14 @@ object ParalelismoJConfDominicana2019 {
             }
             commit()
         }
+        val time = 4
+        println("Data prepared: wating $time seconds")
+        try {
+            TimeUnit.SECONDS.sleep(4)
+        } catch (ex: InterruptedException) {
+            ex.printStackTrace()
+        }
+
         MonoThread.run()
         println("--------------------------------------------------------")
         MultiThread.run()

@@ -1,6 +1,5 @@
 package edu.aluismarte.jconf.tests;
 
-import edu.aluismarte.jconf.domain.Work;
 import edu.aluismarte.jconf.utils.Counter;
 
 import java.util.concurrent.ExecutorService;
@@ -15,12 +14,15 @@ public class MonoThread {
     private static final Counter counter = new Counter();
 
     public static void run() {
+        System.out.println("Mono Thread Test");
         long initTime = System.currentTimeMillis();
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<Boolean> mono = executorService.submit(() -> {
             try {
-                for (Work work : DataLoader.loadAll()) {
-                    counter.sumNumberSyncronize(work.getNumbers());
+                for (String work : DataLoader.loadAll()) {
+                    for (String num : work.split(",")) {
+                        counter.sumNumberSyncronize(num);
+                    }
                 }
             } catch (Exception ex) {
                 System.out.println("Error!");
