@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Constants {
 
-    public static final int PART_TO_LOAD = 50;
+    public static final int PART_TO_LOAD = 10 * 1000; // Change on 1,000 and see slow data process
     public static final int ROWS_ON_DB = 500 * 1000;
 
     public static List<Integer> numberList() {

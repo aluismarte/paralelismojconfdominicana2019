@@ -42,14 +42,13 @@ object ParalelismoJConfDominicana2019 {
             }
             commit()
         }
-        val time = 4
+        val time = 2
         println("Data prepared: wating $time seconds")
         try {
             TimeUnit.SECONDS.sleep(4)
         } catch (ex: InterruptedException) {
             ex.printStackTrace()
         }
-
         MonoThread.run()
         println("--------------------------------------------------------")
         MultiThread.run()
