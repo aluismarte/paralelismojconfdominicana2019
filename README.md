@@ -8,6 +8,7 @@ Consideraciones
  - La carga de disco es de 10,000 y se usa 5, 10 y 50 hilos en la piscina, pues el algoritmo de división de trabajo no tiene contemplado la división de trabajo con fracciones no exactas.
 
 La carga de trabajo y su naturaleza es la que especifica cuantos hilos debo usar.
+La carga de trabajo cuando se procesa debe de dar 500,000 registros por cada numero, sino esta mal distribuida.
 
 Preguntas sugerentes para probar
  - Más hilos es más rápido?
