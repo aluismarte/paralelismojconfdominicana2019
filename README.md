@@ -1,5 +1,7 @@
 Experimento de paralelismo en java para el JConf Dominicana 2019.
 
+La diapositiva y PDF de la charla esta en Documents.
+
 El objetivo es mostrar como se carga la data de disco a memoria y como se puede procesar junto a los hilos y como seleccionarlos.
 
 Consideraciones
